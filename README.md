@@ -8,6 +8,8 @@ This project demonstrates how to use **NgRx**, a state management library for An
 
 **NgRx** provides a single source of truth for your application's data using a central **Store**. All changes to this data flow in one direction, making state updates easy to track, debug, and reason about.
 
+NgRx is a state management library for Angular that uses the Redux pattern. It helps you manage application data in a centralized way using Actions, Reducers, Selectors, and Effects. Think of NgRx like a single “data brain” for your app — instead of having different components manage their own data, everything flows through the store, which is a global, reactive data container. When something happens (like clicking a button), you dispatch an Action (e.g., addEmployee). The Reducer takes this action and updates the store immutably. Your components then select the updated data from the store using Selectors. If data needs to be fetched from an API, you use Effects, which listen for specific actions and perform asynchronous work like HTTP calls. For example, if you want to add a new employee, you might dispatch addEmployeeAction({ data }), an Effect catches it and calls an API, and once it succeeds, it dispatches addEmployeeSuccessAction, which the Reducer uses to update the store with the new employee. The UI then automatically reflects this new data — no need to manage complex manual updates. NgRx keeps your logic organized, testable, and scalable, especially in large apps.
+
 ---
 
 ## 🚩 Key Features and Examples
