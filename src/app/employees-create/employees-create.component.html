@@ -1,0 +1,31 @@
+<div class="container mainApp p-2">
+  <div class="d-flex justify-content-between align-items-center mb-4 mt-4">
+    <h4 class="text-center">Employee Create</h4>
+    <button type="button" class="btn btn-primary" (click)="backToList()">Go Back</button>
+  </div>
+
+  <form [formGroup]="employeeForm">
+
+    <!-- Name -->
+    <div class="form-group mb-3">
+      <label for="employeeName">Name</label>
+      <input type="text" class="form-control" id="employeeName" formControlName="name" placeholder="Enter Name">
+      <div class="text-danger mt-1" *ngIf="employeeForm.get('name')?.invalid && employeeForm.get('name')?.touched">
+        Name is required.
+      </div>
+    </div>
+
+    <!-- Salary -->
+    <div class="form-group mb-4">
+      <label for="employeeSalary">Salary</label>
+      <input type="number" class="form-control" id="employeeSalary" formControlName="salary" placeholder="Enter Salary">
+      <div class="text-danger mt-1" *ngIf="employeeForm.get('salary')?.invalid && employeeForm.get('salary')?.touched">
+        Salary is required.
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-success" (click)="createEmployee()">Submit</button>
+  </form>
+
+
+</div>

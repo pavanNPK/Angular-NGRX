@@ -1,0 +1,40 @@
+<div class="container mainApp p-2">
+  <div class="d-flex justify-content-between align-items-center mb-4 mt-4">
+    <h4 class="text-center">Employees List</h4>
+    <button type="button" class="btn btn-primary" [routerLink]="['/employees/create']">Add Employee</button>
+  </div>
+
+  @if (employeesData$?.length > 0) {
+    <table class="table table-striped table-bordered align-middle">
+      <thead class="table-dark">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Salary</th>
+        <th scope="col">Action</th>
+      </tr>
+      </thead>
+      <tbody>
+        @for (emp of employeesData$; track emp.id) {
+          <tr>
+            <th scope="row">{{ emp.id }}</th>
+            <td>{{ emp.name }}</td>
+            <td>{{ emp.salary | currency:'INR' }}</td>
+            <td>
+              <button type="button" class="btn btn-sm btn-primary me-2" routerLink="/employees/edit/{{emp.id}}">
+                <i class="bi bi-pencil-fill"></i> Edit
+              </button>
+              <button type="button" class="btn btn-sm btn-danger" (click)="deleteEmployee(emp.id)">
+                <i class="bi bi-trash-fill"></i> Delete
+              </button>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  } @else {
+    <div class="alert alert-warning text-center mt-4" role="alert">
+      No employees found.
+    </div>
+  }
+</div>

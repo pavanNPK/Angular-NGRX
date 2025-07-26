@@ -1,0 +1,8 @@
+<div class="testComp ">
+  <h5 class="card-title m-0">Test Component - Without Ngrx</h5>
+  <p *ngIf="countValue.length">{{countValue}}</p>
+  <div class=" p-0 mt-4">
+    <button class="btn btn-success me-3" (click)="incrementWONgrx()">Increment</button>
+    <button class="btn btn-secondary" [disabled]="!countValue.length" (click)="decrementWONgrx()">Decrement</button>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<div class="container mainApp">
+  <h1 class="text-center">{{title}}</h1>
+  <h4 class="text-center mb-4">Parent Component - App Component</h4>
+  <div class="row mainTwoComps">
+    <div class="col-6">
+      <div class="card border border-secondary shadow p-3">
+        <p>Parent Count - Without Ngrx: {{countWONgrx}}</p>
+        <app-test (incrementCountWONgrxEmit)="incrementCountWONgrx()" [countValue]="countValueWONgrx"
+                  (decrementCountWONgrxEmit)="decrementCountWONgrx()">
+        </app-test>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="card border border-secondary shadow p-3">
+<!--        <p>Parent Count - With Ngrx: {{countWNgrx}}</p>-->
+        <p>Getting count from store observable: {{counterValue$}}</p>
+        <p>Getting count from store selector: {{counterValueSelector$ | async}}</p>
+        <app-test-for-ngrx></app-test-for-ngrx>
+      </div>
+    </div>
+  </div>
+</div>
